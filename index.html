@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Sun - Interactive Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            background-color: #fff8e1;
+        }
+        h1 {
+            color: #ff4500;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .section {
+            margin: 20px 0;
+            padding: 15px;
+            border-left: 4px solid #ff9800;
+            transition: all 0.3s ease;
+        }
+        .section:hover {
+            background-color: #fff3e0;
+            transform: translateX(5px);
+        }
+        h2 {
+            color: #e65100;
+            cursor: pointer;
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #e65100;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Sun</h1>
+
+        <div class="section">
+            <h2 onclick="toggleSection('overview')">Overview</h2>
+            <div id="overview">
+                <p>The Sun is the star at the center of the Solar System, classified as a G2V-type main-sequence star, commonly known as a yellow dwarf. It has a diameter of approximately 1.391 million kilometers (864,000 miles), making it about 109 times larger than Earth in diameter. Its immense gravity holds the Solar System together, and it constitutes about 99.86% of the system's total mass.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 onclick="toggleSection('characteristics')">Physical Characteristics</h2>
+            <div id="characteristics">
+                <ul>
+                    <li><strong>Spectral Type:</strong> G2V (Yellow Dwarf)</li>
+                    <li><strong>Mass:</strong> 1.989 × 10³⁰ kg (333,000 times Earth's mass)</li>
+                    <li><strong>Surface Temperature:</strong> ~5,500°C (9,932°F)</li>
+                    <li><strong>Core Temperature:</strong> ~15 million°C (27 million°F)</li>
+                    <li><strong>Age:</strong> Approximately 4.6 billion years</li>
+                    <li><strong>Rotation Period:</strong> 25.05 days at equator, 34.4 days at poles</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 onclick="toggleSection('composition')">Composition and Structure</h2>
+            <div id="composition">
+                <p>The Sun is a hot ball of plasma composed primarily of:</p>
+                <ul>
+                    <li><strong>Hydrogen:</strong> ~73%</li>
+                    <li><strong>Helium:</strong> ~25%</li>
+                    <li><strong>Other Elements:</strong> ~2% (including oxygen, carbon, neon, iron, etc.)</li>
+                </ul>
+                <p>It has several layers:</p>
+                <ol>
+                    <li><strong>Core:</strong> Where nuclear fusion occurs</li>
+                    <li><strong>Radiative Zone:</strong> Energy transfer via radiation</li>
+                    <li><strong>Convective Zone:</strong> Energy transfer via convection</li>
+                    <li><strong>Photosphere:</strong> Visible surface</li>
+                    <li><strong>Chromosphere:</strong> Thin layer above photosphere</li>
+                    <li><strong>Corona:</strong> Outer atmosphere</li>
+                </ol>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 onclick="toggleSection('energy')">Energy Production</h2>
+            <div id="energy">
+                <p>The Sun generates its energy through nuclear fusion in its core, where hydrogen atoms fuse to form helium, releasing tremendous amounts of energy in the process. This energy is emitted as electromagnetic radiation, primarily in the form of visible light, ultraviolet, and infrared. The Sun's luminosity is approximately 3.828 × 10²⁶ watts, and it produces enough energy in one second to meet Earth's energy needs for about 500,000 years.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <button onclick="showAll()">Show All Sections</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section.classList.contains('hidden')) {
+                section.classList.remove('hidden');
+            } else {
+                section.classList.add('hidden');
+            }
+        }
+
+        function showAll() {
+            const sections = document.querySelectorAll('.section div');
+            sections.forEach(section => {
+                section.classList.remove('hidden');
+            });
+        }
+
+        // Initially hide all sections except headers
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.section div');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+        });
+    </script>
+</body>
+</html>
